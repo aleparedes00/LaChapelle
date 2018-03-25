@@ -29,6 +29,18 @@
         <item>-1</item>
     </string-array>
 
+    <!--List of item-->
+    <string name="itemsForList">Items allow to buy</string>
+
+    <string-array name="productsToBuy">
+        <item>Huile</item>
+        <item>Sel</item>
+        <item>Poivre</item>
+        <item>Clean floor product</item>
+        <item>Buy ecolo</item>
+        <item>This is excited</item>
+
+    </string-array>
     <!-- Example settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>
 

@@ -9,11 +9,18 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
     static String TAG = "MainActivity";
+    private ListView listView;
+    AppUtility appUtility;
+
+    ArrayAdapter<String> itemsAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,20 +28,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        appUtility = AppUtility.getAppUtility(getApplicationContext());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        listView = findViewById(R.id.listView);
+        itemsAdapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, appUtility.getItems());
+        listView.setAdapter(itemsAdapter);
+
+
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "This should be the notificaion buttom", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-            }
-        });
-        Button btnLogin = (findViewById(R.id.login));
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "Welcome to Android Development");
             }
         });
 
